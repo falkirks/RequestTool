@@ -25,3 +25,6 @@ Then you will need to install the composer dependencies by running:
 ```
 php composer.phar install
 ```
+
+###Packaging 
+Packaging in executable is done via [phar-composer](https://github.com/clue/phar-composer/). 
