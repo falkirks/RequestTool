@@ -6,5 +6,6 @@
     },
     "autoload": {
         "psr-4": {"requesttool\\": "lib/"}
-    }
+    },
+    "bin": ["bin/RequestTool"]
 }

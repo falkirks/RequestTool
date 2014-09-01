@@ -29,9 +29,9 @@ class EnviromentTest{
             Output::error("You don't have git installed. http://git-scm.com/");
             return false;
         }
-        @mkdir("data");
-        @mkdir("data/forums");
-        @mkdir("data/github");
+        @mkdir(__DIR__ . "/data");
+        @mkdir(__DIR__ . "/data/forums");
+        @mkdir(__DIR__ . "/data/github");
         return true;
 
     }
