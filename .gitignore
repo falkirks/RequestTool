@@ -2,3 +2,4 @@
 vendor/*
 lib/data/forums/*
 lib/data/github/*
+composer.lock

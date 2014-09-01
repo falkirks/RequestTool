@@ -29,8 +29,7 @@ class GistUpload{
         chdir($w);
         GistUpload::rrmdir("gist");
         //var_dump($res);
-        return $res["html_url"];
-
+        return "[MEDIA=gist]" . $res["id"] . "[/MEDIA]";
     }
     static public function rrmdir($dir) {
         if (is_dir($dir)) {

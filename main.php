@@ -5,7 +5,9 @@ if(EnviromentTest::runTests()){
     $auth = new LoginInterface;
     $path = PluginBuilder::createPackage();
     $data = ReviewInterface::getReviewData($path);
-    Output::link(GistUpload::getLink($path, $data, $auth->getGithubClient()));
+    $code = GistUpload::getLink($path, $data, $auth->getGithubClient());
+    Output::info("Post a reply to the request with the below code:");
+    Output::link($code);
 }
 else{
     Output::info("Exiting...");
