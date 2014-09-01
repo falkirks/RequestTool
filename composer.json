@@ -1,0 +1,7 @@
+{
+    "name": "falkirks/RequestTool",
+    "description": "Tool for filling plugin Requests",
+    "require": {
+        "knplabs/github-api": "1.3.0"
+    }
+}
