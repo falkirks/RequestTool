@@ -1,5 +1,11 @@
+# PHPStorm
 .idea/*
+# Composer
 vendor/*
+# Account Data
 lib/data/forums/*
 lib/data/github/*
+<<<<<<< HEAD
 composer.lock
+=======
+>>>>>>> 373f58fcc24837df30778b9a8577b0bd06b53f52
