@@ -5,4 +5,7 @@ Tool for filling plugin requests on PocketMine forums.
 
 - [x] Packages plugin.
 - [x] Runs a code review and records results.
-- [ ] Creates a Gist with all the data. (Requires authentication)
+- [ ] Authenticates with GitHub.
+- [ ] Creates a Gist with all the data (requires some nasty hacks).
+- [x] Authenticates with PocketMine Forums.
+- [ ] Posts a reply with a link to Gist on your behalf.
