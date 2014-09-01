@@ -6,3 +6,5 @@ composer.lock
 # Account Data
 lib/data/forums/*
 lib/data/github/*
+
+RequestTool.phar
