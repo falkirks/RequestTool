@@ -2,6 +2,7 @@
 /*
  * Gets and parses data from pluginReview.php
  */
+namespace requesttool;
 class ReviewInterface{
     const PLUGIN_REVIEW_URL = "http://pocketmine.net/pluginReview.php";
     static public function getReviewData($path){

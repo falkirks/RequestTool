@@ -19,7 +19,7 @@
  *
 */
 
-
+namespace requesttool;
 class PluginDescription{
     private $name;
     private $main;

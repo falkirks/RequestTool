@@ -3,5 +3,8 @@
     "description": "Tool for filling plugin Requests",
     "require": {
         "knplabs/github-api": "1.3.0"
+    },
+    "autoload": {
+        "psr-4": {"requesttool\\": "lib/"}
     }
 }

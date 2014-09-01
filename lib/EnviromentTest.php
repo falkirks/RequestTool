@@ -5,6 +5,8 @@
  *
  * Also tests that we are working with a proper plugin.
  */
+namespace requesttool;
+
 class EnviromentTest{
     static public function runTests(){
         if(ini_get("phar.readonly") == 1){

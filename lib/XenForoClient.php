@@ -3,6 +3,7 @@
  * XenForo client written in PHP
  * https://github.com/Falkirks/XenForo-Client
  */
+namespace requesttool;
 class XenForoClient {
     private $c, $b, $u, $p;
   function __construct($url, $user, $pass) {
@@ -10,8 +11,8 @@ class XenForoClient {
       $this->p = $pass;
       $this->u = $user;
       $this->c = [];
-      if (!$this->connect($this->b, null)) throw new Exception;
-      if (!$this->login($this->u, $this->p)) throw new Exception;
+      if (!$this->connect($this->b, null)) throw new \Exception;
+      if (!$this->login($this->u, $this->p)) throw new \Exception;
   }
   private function login($user, $password) {
         $result = $this->connect($this->b . '/login/login', [

@@ -2,30 +2,47 @@
 /*
  * Hacky Gist upload for everything.
  */
-require_once dirname(__DIR__) . "/vendor/autoload.php"; //Start composer autoloading, blocks custom autoload
+namespace requesttool;
+
+use Github\Client;
+
 class GistUpload{
     const GIST_API_URL = "https://api.github.com/gists";
-    static public function getLink($path, $data){
+    static public function getLink($path, $data, Client $client){
         $post = [
             'description' => 'Request response generated with RequestTool',
             'public' => 1,
             'files' => [
-                'README.md' => ['content' => 'This is a simple README'],
+                'README.md' => ['content' => 'This is a simple README file.'],
                 'review.txt' => ['content' => $data],
             ]
         ];
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, GistUpload::GIST_API_URL);
-        curl_setopt($ch,CURLOPT_USERAGENT,'RequestTool Falkirks nhfalkirks@gmail.com');
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($post));
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($ch);
-        curl_close($ch);
-        $decoded = json_decode($response, true);
-        print $decoded['html_url'];
+        $res = $client->api('gists')->create($post);
+        Output::info("Attaching phar to gist. You may have to enter your Github credentials again.");
+        exec("git clone " . $res["git_pull_url"] . " ./gist");
+        rename($path, "gist/" . $path);
+        $w = getcwd();
+        chdir($w . "/gist");
+        exec("git add " . $path);
+        exec('git commit -m "Added code"');
+        exec("git push " . $res["git_push_url"] . " master");
+        chdir($w);
+        GistUpload::rrmdir("gist");
+        //var_dump($res);
+        return $res["html_url"];
 
     }
+    static public function rrmdir($dir) {
+        if (is_dir($dir)) {
+            $objects = scandir($dir);
+            foreach ($objects as $object) {
+                if ($object != "." && $object != "..") {
+                    if (filetype($dir."/".$object) == "dir") GistUpload::rrmdir($dir."/".$object); else unlink($dir."/".$object);
+                }
+            }
+            reset($objects);
+            rmdir($dir);
+        }
+    }
+
 }
