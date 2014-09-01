@@ -27,7 +27,7 @@ php RequestTool.phar
 ####Executable (Recomended)
 Executable phar archives are posted with each version release. You can find them on the [releases page](https://github.com/Falkirks/RequestTool/releases). Once you have downloaded the executable, you will need to stick it in your $PATH so you can use the tool correctly. You can also create an alias in your .bash_profile if you want.
 ####Source
-I will eventually distribute a package for easy setup but during development you will have to set it up yourself. In order to do this you will need composer. Start by running:
+In order to get a working version from the source you will need [Composer](https://getcomposer.org). Clone this repo:
 ```
 git clone https://github.com/Falkirks/RequestTool.git
 ```
@@ -35,7 +35,10 @@ Then you will need to install the composer dependencies by running:
 ```
 php composer.phar install
 ```
-After this you will need to create a terminal alias for the index.php or package and add the executable to your $PATH.
+Then if you want you can add it to your $PATH or create an alias.
 
 ###Packaging 
-Packaging in executable is done via [phar-composer](https://github.com/clue/phar-composer/). 
+Packaging in executable is done via [phar-composer](https://github.com/clue/phar-composer/). In order to package you will need to install it. Once you have it installed just navigate to the source directory and run:
+```
+phar-composer build
+```
