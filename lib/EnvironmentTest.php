@@ -7,7 +7,7 @@
  */
 namespace requesttool;
 
-class EnviromentTest{
+class EnvironmentTest{
     static public function runTests(){
         if(ini_get("phar.readonly") == 1){
             Output::error("Set phar.readonly to 0 with -dphar.readonly=0\n");
