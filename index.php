@@ -1,7 +1,7 @@
 <?php
 namespace requesttool;
 require_once __DIR__ . "/vendor/autoload.php";
-if(EnviromentTest::runTests()){
+if(EnvironmentTest::runTests()){
     $auth = new LoginInterface;
     $path = PluginBuilder::createPackage();
     $data = ReviewInterface::getReviewData($path);
